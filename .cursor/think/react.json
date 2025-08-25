@@ -1,0 +1,16 @@
+{
+  "phases": {
+    "plan": {
+      "model": "google/gemini-2.0-flash-thinking-exp:free",
+      "prompt": "Create component architecture with TypeScript interfaces"
+    },
+    "code": {
+      "model": "deepseek/deepseek-chat-v3-0324:free",
+      "prompt": "Implement ${plan.output} using React 19"
+    },
+    "review": {
+      "model": "qwen/qwq-32b-preview:free",
+      "prompt": "Check for accessibility issues in ${code.output}"
+    }
+  }
+}

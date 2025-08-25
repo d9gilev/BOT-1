@@ -1,0 +1,16 @@
+{
+  "phases": {
+    "plan": {
+      "model": "google/gemini-2.0-flash-thinking-exp:free",
+      "prompt": "Create API architecture with TypeScript interfaces and database schema"
+    },
+    "code": {
+      "model": "deepseek/deepseek-chat-v3-0324:free",
+      "prompt": "Implement ${plan.output} using Node.js, Express, and TypeScript"
+    },
+    "test": {
+      "model": "qwen/qwq-32b-preview:free",
+      "prompt": "Create comprehensive tests for ${code.output}"
+    }
+  }
+}

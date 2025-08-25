@@ -1,0 +1,17 @@
+{
+  "name": "tg-bot",
+  "version": "1.0.0",
+  "description": "Telegram Bot",
+  "main": "src/bot.ts",
+  "scripts": {
+    "dev": "tsx src/bot.ts"
+  },
+  "type": "module",
+  "dependencies": {
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0",
+    "dotenv": "^16.0.0",
+    "telegraf": "^4.15.0",
+    "openai": "^4.0.0"
+  }
+}

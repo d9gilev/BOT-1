@@ -1,7 +1,6 @@
 import 'dotenv/config';
 import { Telegraf } from 'telegraf';
 import OpenAI from 'openai';
-import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN!);
 const ai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
@@ -25,7 +24,7 @@ bot.on('text', async (ctx) => {
 });
 
 // Vercel serverless function
-export default async function handler(req: VercelRequest, res: VercelResponse) {
+export default async function handler(req: any, res: any) {
   if (req.method === 'POST') {
     try {
       await bot.handleUpdate(req.body);

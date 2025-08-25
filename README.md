@@ -6,37 +6,30 @@
 npm run dev
 ```
 
-## Деплой на Vercel
+## MCP Sequential Thinking Installation
 
-1. Войди в аккаунт Vercel:
+### NPX Installation
 ```bash
-npx vercel login
+npx -y @modelcontextprotocol/server-sequential-thinking
 ```
 
-2. Деплой:
+### Docker Installation
 ```bash
-npx vercel --prod
+docker run --rm -i mcp/sequentialthinking
 ```
 
-3. Добавь переменные окружения в Vercel Dashboard:
-   - `TELEGRAM_BOT_TOKEN`
-   - `OPENAI_API_KEY`
-
-4. Установи webhook в Telegram (замени URL на твой):
+### Build from Source
 ```bash
-curl -X POST "https://api.telegram.org/bot8479007772:AAEGQVho5ec7qUQ56yuwVPD5HkiP3TYYaJM/setWebhook" \
-  -H "Content-Type: application/json" \
-  -d '{"url": "https://your-app.vercel.app/api/webhook"}'
+docker build -t mcp/sequentialthinking -f src/sequentialthinking/Dockerfile .
 ```
 
 ## Структура
 
-- `api/webhook.ts` - Vercel serverless function
-- `src/dev.ts` - Локальная разработка с polling
-- `vercel.json` - Конфигурация Vercel
+- `src/bot.ts` - Telegram бот с polling
+- `package.json` - зависимости проекта
+- `tsconfig.json` - конфигурация TypeScript
 
-## Готово к деплою!
+## Готово к работе!
 
-Проект настроен для Vercel. Выполни:
-1. `npx vercel login`
-2. `npx vercel --prod`
+Проект настроен для локальной разработки. Выполни:
+1. `npm run dev`

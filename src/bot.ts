@@ -7,9 +7,7 @@ const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN!);
 const ai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 // Запускаем MCP Sequential Thinking сервер как отдельный процесс
-const mcpProcess = spawn('/usr/local/bin/node', [
-  '/Users/ms/TG BOT/node_modules/@modelcontextprotocol/server-sequential-thinking/dist/index.js'
-], {
+const mcpProcess = spawn('npx', ['-y', '@modelcontextprotocol/server-sequential-thinking'], {
   stdio: ['pipe', 'pipe', 'pipe']
 });
 
